@@ -1,4 +1,4 @@
-# Level Master Pro 🚛 Eğim ve Güvenlik Otomasyon Sistemi / Tilt & Safety Automation System
+# Level Master Pro 🚛 <br> Eğim ve Güvenlik Otomasyon Sistemi / Tilt & Safety Automation System
 
 <p align="center">
   <a href="#-türkçe-dokümantasyon">🇹🇷 Türkçe Dokümantasyon</a> | 
@@ -11,9 +11,9 @@
 
 **Level Master Pro**, endüstriyel damperli araçlar ve tır lojistiği için geliştirilmiş, ESP32 mimarisi ve MPU6500 6-eksenli ivmeölçer/jiroskop tabanlı kapalı devre bir **kablosuz telemetri ve güvenlik sistemidir**. 
 
-Bu proje; donanım entegrasyonu, gömülü yazılım sinyal işleme algoritmaları ve modern web teknolojilerini bir araya getiren endüstriyel bir Nesnelerin İnterneti (IoT) başyapıtıdır.
+Bu proje; donanım entegrasyonu, gömülü yazılım sinyal işleme algoritmaları ve modern web teknolojilerini bir araya getiren uçtan uca (end-to-end) endüstriyel bir Nesnelerin İnterneti (IoT) çözümüdür.
 
-> 🔒 **Fikri Mülkiyet Bilgilendirmesi:** Bu proje ticari bir ürün olarak geliştirildiğinden, kaynak kodları (C++ / HTML5) kamuya kapalıdır. Bu depoda projenin mimarisi, mühendislik yaklaşımları ve telemetri çıktıları belgelenmiştir.
+> 🔒 **Fikri Mülkiyet Bilgilendirmesi:** Bu proje ticari bir ürün olarak geliştirildiğinden, cihaz firmware kodları (C++) ve web arayüzü kaynak kodları (HTML5, CSS3, JavaScript, SVG) kamuya kapalıdır. Bu depoda projenin mimarisi, mühendislik yaklaşımları ve telemetri çıktıları belgelenmiştir.
 
 ### 📺 Canlı Ürün Demosu (Geliştirici Sürümü)
 Sistemin şantiye sarsıntılarını sönümleme kararlılığı ve kritik limit aşımında sürücüyü uyaran anlık renk geçiş mimarisi:
@@ -21,12 +21,13 @@ Sistemin şantiye sarsıntılarını sönümleme kararlılığı ve kritik limit
 ![Safety Alarms Demo](safety-alarms.gif)
 
 ### 🛠️ Teknolojik Altyapı (Tech Stack)
-* **Mikrodenetleyici & Ağ:** ESP32 (Asynchronous Web Server, WiFi Access Point, DNS Captive Portal Server).
-* **Donanım & Haberleşme:** MPU6500 İvmeölçer, I2C Protokolü, Kalıcı Hafıza Yönetimi (Preferences/EEPROM).
-* **Ön Yüz (UI/UX):** Vanilla JavaScript (AJAX/Fetch API, JSON Parsing), SVG Grafik Matematik Haritalama, CSS Grid & Flexbox, Cross-Browser Mobile Engine Optimization.
+* **Mikrodenetleyici & Ağ Güvenliği:** ESP32 MCU, Asynchronous Web Server, Asenkron Lokal Wi-Fi Access Point (AP Mimarisi), DNS Captive Portal Server (Ağ Yönlendirme).
+* **Donanım Mimarisi & Haberleşme:** MPU6500 6-Axis IMU (İvmeölçer), I2C Veri İletişim Protokolü, Donanımsal Kalıcı Hafıza Yönetimi (NVS - Non-Volatile Storage / Preferences Kütüphanesi).
+* **Mühendislik & Veri Yönetimi:** RESTful Veri API Tasarımı, Dinamik JSON Serileştirme (Serialization/Parsing), Gömülü Yazılım Sinyal İşleme (Gürültü Filtreleme).
+* **Ön Yüz (UI/UX):** Vanilla JavaScript (Asenkron Fetch API / AJAX), SVG Grafik Matematiksel Haritalama & İğne Rotasyon Algoritması, CSS3 Grid & Flexbox, Cross-Browser Mobile Engine Optimization (Chrome & Samsung Internet).
 
 ### 🧠 Öne Çıkan Mühendislik Çözümleri
-1. **Yazılımsal Sinyal Sönümleme (Moving Average Filter):** Tır motorunun yüksek rölanti titreşimleri ve şantiye sarsıntıları, sensörden gelen ham verilerde gürültülere yol açar. Bunu engellemek için gömülü yazılım tarafında **20 elemanlı Hareketli Ortalama Filtresi** kurulmuştur. Sistem her 250ms'de bir güncel 20 ölçümün ortalamasını alarak stabil bir veri akışı sunar.
+1. **Yazılımsal Sinyal Sönümleme (Moving Average Filter):** Tır motorunun yüksek rölanti titreşimleri ve şantiye sarsıntıları, sensörden gelen ham verilerde gürültülere yol açar. Bunu engellemek için gömülü yazılım tarafında **10 elemanlı Hareketli Ortalama Filtresi** kurulmuştur. Sistem her 250ms'de bir güncel 10 ölçümün ortalamasını alarak stabil bir veri akışı sunar.
 2. **Akıllı Güvenlik ve Dinamik Eşik Yönetimi:** Sürücü, kabin içindeki dijital paneli kullanarak limitleri anlık güncelleyebilir. Belirlenen bu limitler ESP32'nin flash hafızasına kalıcı olarak işlenir.
    
    ![Dynamic Limits Demo](dynamic-limits.gif)
@@ -36,10 +37,10 @@ Sistemin şantiye sarsıntılarını sönümleme kararlılığı ve kritik limit
 ### 📱 Arayüz Durum Yönetimi (UI State Management)
 | Sistem Durumu: Kararlı / Güvenli Operasyon | Ağ Bağlantısı Kesildiğinde (Hata Yakalama) |
 |:---:|:---:|
-| ![Dashboard Normal](dashboard-normal.png) | ![Dashboard Disconnected](dashboard-disconnected.png) |
+| ![Dashboard Normal](dashboard-normal.jpg) | ![Dashboard Disconnected](dashboard-disconnected.jpeg) |
 
 ### 🎛️ Donanım ve Başlatma Logları (Serial Monitor)
-![Terminal Logs](terminal-log.png)
+![Terminal Logs](terminal-log.jpeg)
 
 ---
 
@@ -72,10 +73,10 @@ Demonstration of signal stabilization against site vibrations and the real-time 
 ### 📱 UI State Management
 | System Status: Stable / Safe Operation | Connection Lost (Error Handling) |
 |:---:|:---:|
-| ![Dashboard Normal](dashboard-normal.png) | ![Dashboard Disconnected](dashboard-disconnected.png) |
+| ![Dashboard Normal](dashboard-normal.jpg) | ![Dashboard Disconnected](dashboard-disconnected.jpeg) |
 
 ### 🎛️ Hardware Initialize & Telemetry Logs (Serial Monitor)
-![Terminal Logs](terminal-log.png)
+![Terminal Logs](terminal-log.jpeg)
 
 ---
 
